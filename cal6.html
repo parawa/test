@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>atHTML</title>
+
+    <style>
+
+      .mybtn0 {
+
+        display: block;
+
+        width: 100%;
+
+        height: 100%;
+
+        background-color: rgb(236, 234, 234);
+
+        font-size: 40px;
+
+        border-radius: 10px;
+
+      }
+
+      .mybtnE {
+
+        display: block;
+
+        width: 100%;
+
+        height: 100%;
+
+        background-color: rgb(128, 154, 226);
+
+        font-size: 40px;
+
+        border-radius: 10px;
+
+      }
+
+      .lcd {
+
+        grid-area: lcdBlock;
+
+      }
+
+      .btn0 {
+
+        grid-area: btn0Block;
+
+      }
+
+      .btn1 {
+
+        grid-area: btn1Block;
+
+      }
+
+      .btn2 {
+
+        grid-area: btn2Block;
+
+      }
+
+      .btn3 {
+
+        grid-area: btn3Block;
+
+      }
+
+      .btnMinus {
+
+        grid-area: btnMinus;
+
+      }
+
+      .btn4 {
+
+        grid-area: btn4Block;
+
+      }
+
+      .btn5{
+
+        grid-area: btn5Block;
+
+      }
+
+      .btn6 {
+
+        grid-area: btn6Block;
+
+      }
+
+      .btnMultiply {
+
+        grid-area: btnMultiplyBlock;
+
+      }
+
+      .btn7 {
+
+        grid-area: btn7Block;
+
+      }
+
+      .btn8 {
+
+        grid-area: btn8Block;
+
+      }
+
+      .btn9 {
+
+        grid-area: btn9Block;
+
+      }
+
+      .btnDivide {
+
+        grid-area: btnDivideBlock;
+
+      }
+
+      .btnC {
+
+        grid-area: btnClear;
+
+      }
+
+      .btnE {
+
+        grid-area: btnE;
+
+        
+
+      }
+
+      .btnDot {
+
+        grid-area: btnDot;
+
+      }
+
+      .btnPlus {
+
+        grid-area: btnPlus;
+
+      }
+
+      .btnOpenBracket {
+
+        grid-area: btnOpenBracket;
+
+      }
+
+      .btnCloseBracket {
+
+        grid-area: btnCloseBracket;
+
+      }
+
+      .btnPercent {
+
+        grid-area: btnPercent;
+
+      }
+
+      .btnC {
+
+        grid-area: btnClear;
+
+      }
+
+
+
+      .container {
+
+        display: grid;
+
+        grid-template-areas: 
+
+        "lcdBlock lcdBlock lcdBlock lcdBlock"
+
+        "btnOpenBracket btnCloseBracket btnPercent btnClear"
+
+        "btn7Block btn8Block btn9Block btnDivideBlock"
+
+        "btn4Block btn5Block btn6Block btnMultiplyBlock"
+
+        "btn1Block btn2Block btn3Block btnMinus"
+
+        "btn0Block btnDot btnE btnPlus";
+
+        grid-gap: 5px;
+
+        width: 500px;
+
+        background-color: white;
+
+        text-align: center;
+
+        font-size: 40px;
+
+      }
+
+      /* .container > .btn0, .btn1, .btnC {
+
+        background-color: red;
+
+        text-align: center;
+
+        font-size: 40px;
+
+      } */
+
+      .container > .lcd {
+
+        background-color: rgb(214, 212, 212);
+
+        text-align: right;
+
+      }
+
+    </style>
+
+    <script type="text/javascript" src="./node_modules/mathjs/lib/browser/math.js"></script>
+
+  </head>
+
+
+  <body>
+
+    <div class="container">
+
+      <div id="mylcd" class="lcd">0</div>
+
+      <div class="btnOpenBracket">
+
+        <button id="mybtnOpenBracket" class="mybtn0" onclick="openBracketClick()">(</button>
+
+      </div>
+
+      <div class="btnCloseBracket">
+
+        <button id="mybtnCloseBracket" class="mybtn0" onclick="closeBracketClick()">)</button>
+
+      </div>
+
+      <div class="btnPercent">
+
+        <button id="mybtnPercent" class="mybtn0" onclick="percentClick()">%</button>
+
+      </div>
+
+      <div class="btnC">
+
+        <button id="mybtnC" class="mybtn0" onclick="clearClick()">CE</button>
+
+      </div>
+
+
+
+
+      <div class="btn7">
+
+        <button id="mybtn7" class="mybtn0" onclick="sevenClick()">7</button>
+
+      </div>
+
+      <div class="btn8">
+
+        <button id="mybtn8" class="mybtn0" onclick="eightClick()">8</button>
+
+      </div>
+
+      <div class="btn9">
+
+        <button id="mybtn9" class="mybtn0" onclick="nineClick()">9</button>
+
+      </div>
+
+      <div class="btnDivide">
+
+        <button id="mybtnDivide" class="mybtn0" onclick="divideClick()">/</button>
+
+      </div>
+
+
+      <div class="btn4">
+
+        <button id="mybtn4" class="mybtn0" onclick="fourClick()">4</button>
+
+      </div>
+
+      <div class="btn5">
+
+        <button id="mybtn5" class="mybtn0" onclick="fiveClick()">5</button>
+
+      </div>
+
+      <div class="btn6">
+
+        <button id="mybtn6" class="mybtn0" onclick="sixClick()">6</button>
+
+      </div>
+
+      <div class="btnMultiply">
+
+        <button id="mybtnMultiply" class="mybtn0" onclick="multiplyClick()">x</button>
+
+      </div>
+
+
+      <div class="btn1">
+
+        <button id="mybtn1" class="mybtn0" onclick="oneClick()">1</button>
+
+      </div>
+
+      <div class="btn2">
+
+        <button id="mybtn2" class="mybtn0" onclick="twoClick()">2</button>
+
+      </div>
+
+      <div class="btn3">
+
+        <button id="mybtn3" class="mybtn0" onclick="threeClick()">3</button>
+
+      </div>
+
+      <div class="btnMinus">
+
+        <button id="mybtnMinus" class="mybtn0" onclick="minusClick()">-</button>
+
+      </div>  
+
+
+
+      <div class="btn0">
+
+        <button id="mybtn0" class="mybtn0" onclick="zeroClick()">0</button>
+
+      </div>
+
+      <div class="btnDot">
+
+        <button id="mybtnDot" class="mybtn0" onclick="dotClick()">.</button>
+
+      </div>
+
+      <div class="btnE">
+
+        <button id="mybtnE" class="mybtnE" onclick="EnterClick()">=</button>
+
+      </div>      
+
+      <div class="btnPlus">
+
+        <button id="mybtnPlus" class="mybtn0" onclick="plusClick()">+</button>
+
+      </div>            
+
+
+    
+
+
+      <div class="btnC">
+
+        <button id="mybtnC" class="mybtn0" onclick="clearClick()">CE</button>
+
+      </div>
+
+
+    </div>
+
+    <script src="cal6.js">
+
+
+    </script>
+
+  </body>
+
+
+</html>
